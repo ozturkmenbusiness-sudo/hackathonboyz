@@ -31,19 +31,19 @@ SOURCES (public, cited, dated)
 
 > We tell AI chip companies **what to produce, how much, and what foundry/packaging capacity to reserve** - before the supply window closes.
 
-Customer-facing: *the planning brain for AI chip companies.*
+Customer-facing: _the planning brain for AI chip companies._
 
 ---
 
 ## Buyer
 
-| | |
-|---|---|
-| **Role** | VP Ops / Head of Supply Chain; at <100 people often **COO or technical co-founder** |
-| **Company** | Series A-C **fabless AI chip** startup (accelerator / ASIC), ~50-300 people |
-| **Examples** | Groq, Cerebras, Etched, Tenstorrent, d-Matrix, Rivos, Positron (stage archetype) |
-| **Geo** | US first; also Israel, EU custom-silicon |
-| **Today** | Spreadsheet at midnight + emails/calls to foundry/OSAT reps chasing allocation |
+|              |                                                                                     |
+| ------------ | ----------------------------------------------------------------------------------- |
+| **Role**     | VP Ops / Head of Supply Chain; at <100 people often **COO or technical co-founder** |
+| **Company**  | Series A-C **fabless AI chip** startup (accelerator / ASIC), ~50-300 people         |
+| **Examples** | Groq, Cerebras, Etched, Tenstorrent, d-Matrix, Rivos, Positron (stage archetype)    |
+| **Geo**      | US first; also Israel, EU custom-silicon                                            |
+| **Today**    | Spreadsheet at midnight + emails/calls to foundry/OSAT reps chasing allocation      |
 
 **Not our buyer:** Nvidia, AMD, Intel, TSMC, hyperscalers, or CoreWeave. They have planning armies, insider allocation, or enough leverage to build in-house. We sell to the **~80 challengers** who do not.
 
@@ -76,15 +76,15 @@ Our job is to be 10x better than the spreadsheet, not to invent a need.
 
 ## Validation Scorecard
 
-| # | Question | Verdict |
-|---|----------|---------|
-| 1 | Wedge | Strong |
-| 2 | Buyer | Strong |
-| 3 | Demand | Hypothesis - unproven |
-| 4 | Status quo | Strong |
-| 5 | Why now | Strong |
-| 6 | Founder-market fit | Weak - needs an advisor + interviews |
-| 7 | Evidence | None yet - go get one written "yes" |
+| #   | Question           | Verdict                              |
+| --- | ------------------ | ------------------------------------ |
+| 1   | Wedge              | Strong                               |
+| 2   | Buyer              | Strong                               |
+| 3   | Demand             | Hypothesis - unproven                |
+| 4   | Status quo         | Strong                               |
+| 5   | Why now            | Strong                               |
+| 6   | Founder-market fit | Weak - needs an advisor + interviews |
+| 7   | Evidence           | None yet - go get one written "yes"  |
 
 **Pass/fail:** We answer more than two honestly and well (1, 2, 4, 5). Keep building. **3, 6, and 7 are the work.**
 
@@ -113,7 +113,7 @@ Goal within ~7 days: one VP Ops / COO says, in writing, **"when can I try it?"**
 
 ## What We Build Today
 
-**Minimum shippable:** one **HTML or PDF capacity brief** for a fixed **illustrative scenario** - cited public sources where real, clearly marked synthetic inputs elsewhere, optional demand slider.
+**Minimum shippable:** one **capacity brief** for a fixed **illustrative scenario** - cited public sources where real, clearly marked synthetic inputs elsewhere, optional demand slider.
 
 ### Deliverable Structure
 
@@ -128,12 +128,12 @@ RISK:   ~$18.2M revenue at risk if ~4mo slip (40k units @ $4.2k ASP)
 
 **Page 2 - Gap**
 
-| | |
-|---|---|
-| 18mo demand (input) | 40,000 units |
-| Committed capacity (input) | 12,000 equiv. |
-| Gap | 28,000 |
-| Bottleneck | HBM3E allocation |
+|                            |                  |
+| -------------------------- | ---------------- |
+| 18mo demand (input)        | 40,000 units     |
+| Committed capacity (input) | 12,000 equiv.    |
+| Gap                        | 28,000           |
+| Bottleneck                 | HBM3E allocation |
 
 **Page 3 - Signal table** with named sources, dates, and tags.
 
@@ -145,24 +145,17 @@ Series B inference ASIC, **N3 + CoWoS-L + HBM3E**, 40k unit plan, 12k committed.
 
 **Demo beat:** drag demand slider -> recommendation flips from HOLD to LOCK + deadline + $ at risk.
 
-### Tech Stack
-
-- `signals.json` - 8-12 signals `{name, source, url, date, reading, tightness_contribution}`.
-- Template (HTML/PDF) - fills recommendation from JSON + 2 inputs (demand, committed).
-- Rules engine - no ML required; optional LLM for prose polish only.
-- Optional `helm_demo.html` - single self-contained demo with demand slider, signals panel, demand-vs-capacity gap chart, and early-warning backtest.
-
 ---
 
 ## Public Disclosure
 
-We post publicly. Separate three data classes. **Tag every field** in `signals.json` and in the brief UI.
+We post publicly. Separate three data classes. **Tag every field** in the brief and its underlying data.
 
-| Class | Tag | Meaning | Example |
-|-------|-----|---------|---------|
-| **Verified public** | `source:public` | Real citation, link, date; anyone can check | TrendForce CoWoS ramp article; TSMC earnings line |
-| **Derived** | `source:derived` | Computed from verified public inputs; show formula | `HBM_Tightness = 88` from stock 6mo return + earnings keyword |
-| **Illustrative** | `source:illustrative` | Scenario inputs for demo only; not a real customer | "ChipCo", 40k units, 12k committed, $4.2k ASP |
+| Class               | Tag                   | Meaning                                            | Example                                                       |
+| ------------------- | --------------------- | -------------------------------------------------- | ------------------------------------------------------------- |
+| **Verified public** | `source:public`       | Real citation, link, date; anyone can check        | TrendForce CoWoS ramp article; TSMC earnings line             |
+| **Derived**         | `source:derived`      | Computed from verified public inputs; show formula | HBM tightness score from stock momentum + earnings keywords   |
+| **Illustrative**    | `source:illustrative` | Scenario inputs for demo only; not a real customer | "ChipCo", 40k units, 12k committed, $4.2k ASP                 |
 
 **Never tag illustrative data as public.** If a number is not traceable, it is illustrative.
 
@@ -172,17 +165,17 @@ We post publicly. Separate three data classes. **Tag every field** in `signals.j
 
 ### README One-Liner
 
-> Proof-of-concept built for AI BEAVERS June 2026. Demonstrates how public supply signals could fuse into one capacity decision. Not production forecasting software; no TSMC/foundry partnership; scenario data labeled in `signals.json`.
+> Proof-of-concept built for AI BEAVERS June 2026. Demonstrates how public supply signals could fuse into one capacity decision. Not production forecasting software; no TSMC/foundry partnership; scenario data clearly labeled in the product.
 
 ### Say / Don't Say
 
-| Don't say (public or pitch) | Say instead |
-|-----------------------------|-------------|
-| "Live data from this morning" | "Built from public sources cited in the brief" (only if actually refreshed) |
-| "Real-time foundry intelligence" | "Transparent proxies from public market and earnings data" |
-| "Our customers" / "we forecasted for X" | "Illustrative scenario: a Series B fabless AI chip company" |
-| "TSMC told us..." | "Public earnings and trade press indicate..." |
-| "85/100 tightness" as fact | "Model score 85/100 (derived from sources listed below)" |
+| Don't say (public or pitch)             | Say instead                                                                 |
+| --------------------------------------- | --------------------------------------------------------------------------- |
+| "Live data from this morning"           | "Built from public sources cited in the brief" (only if actually refreshed) |
+| "Real-time foundry intelligence"        | "Transparent proxies from public market and earnings data"                  |
+| "Our customers" / "we forecasted for X" | "Illustrative scenario: a Series B fabless AI chip company"                 |
+| "TSMC told us..."                       | "Public earnings and trade press indicate..."                               |
+| "85/100 tightness" as fact              | "Model score 85/100 (derived from sources listed below)"                    |
 
 ### If Someone Pushes Back
 
@@ -191,7 +184,7 @@ Recover in one breath:
 1. **Acknowledge:** "The scenario company and order book are illustrative - it is a hackathon demo."
 2. **Anchor what's real:** "These six rows are public - here is the link and date."
 3. **Point at the product:** "The product is the decision format: one action, deadline, $ at risk, from fused signals. Production version ingests real order books and refreshes sources on a schedule."
-4. **Offer the file:** "Every field is tagged in `signals.json` - filter by `source:public` vs `source:illustrative`."
+4. **Offer transparency:** "Every field carries a disclosure tag — public, derived, or illustrative — so you can see exactly what is cited vs. scenario."
 
 Do not argue that illustrative numbers are "basically true." Either cite them or label them.
 
@@ -199,56 +192,56 @@ Do not argue that illustrative numbers are "basically true." Either cite them or
 
 ## Data Sources
 
-Six buckets. For hackathon: bake once into `signals.json`, cite source + date on every **public** row, and label **derived** and **illustrative** rows explicitly.
+Six buckets. For hackathon: compile once, cite source + date on every **public** row, and label **derived** and **illustrative** rows explicitly.
 
 ### 1. Foundry & Packaging
 
-| Source | Use |
-|--------|-----|
-| TSMC quarterly earnings + investor deck | Capex, advanced packaging revenue %, capacity commentary |
-| [TrendForce - CoWoS capacity ramp](https://www.trendforce.com/news/2024/12/13/news-tsmc-ramps-up-cowos-capacity-across-taiwan-projected-to-nearly-triple-by-2026/) | ~35k -> 90k wafers/mo trajectory |
-| Trade press (CoWoS booked ~2 years, AP8/AP6 ramps) | Allocation window closing |
-| Public allocation writeups (e.g. Silicon Analysts Q1 2026) | N3 fully booked; CoWoS 52-78wk lead times |
+| Source                                                                                                                                                             | Use                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| TSMC quarterly earnings + investor deck                                                                                                                            | Capex, advanced packaging revenue %, capacity commentary |
+| [TrendForce - CoWoS capacity ramp](https://www.trendforce.com/news/2024/12/13/news-tsmc-ramps-up-cowos-capacity-across-taiwan-projected-to-nearly-triple-by-2026/) | ~35k -> 90k wafers/mo trajectory                         |
+| Trade press (CoWoS booked ~2 years, AP8/AP6 ramps)                                                                                                                 | Allocation window closing                                |
+| Public allocation writeups (e.g. Silicon Analysts Q1 2026)                                                                                                         | N3 fully booked; CoWoS 52-78wk lead times                |
 
-Output: **`CoWoS_Tightness`** (0-100)
+Output: CoWoS tightness index (0-100)
 
 ### 2. HBM / Memory
 
-| Source | Use |
-|--------|-----|
-| SK Hynix / Micron / Samsung earnings | HBM mix, capex, allocation language |
-| TrendForce HBM/DRAM press releases | HBM3E allocation, price YoY |
-| yfinance `000660.KS`, `MU`, `005930.KS` | 6mo momentum as price-confirms-scarcity |
+| Source                                  | Use                                     |
+| --------------------------------------- | --------------------------------------- |
+| SK Hynix / Micron / Samsung earnings    | HBM mix, capex, allocation language     |
+| TrendForce HBM/DRAM press releases      | HBM3E allocation, price YoY             |
+| Public equity performance (memory suppliers) | 6mo momentum as price-confirms-scarcity |
 
-Output: **`HBM_Tightness`**
+Output: HBM tightness index (0-100)
 
 ### 3. Leading-Edge Logic
 
-| Source | Use |
-|--------|-----|
-| TSMC earnings | N3 utilization, ASIC/TPU demand |
-| Public foundry allocation reports | "N3 fully booked" |
+| Source                            | Use                             |
+| --------------------------------- | ------------------------------- |
+| TSMC earnings                     | N3 utilization, ASIC/TPU demand |
+| Public foundry allocation reports | "N3 fully booked"               |
 
-Output: **`N3_Tightness`**
+Output: N3 tightness index (0-100)
 
 ### 4. OSAT / Substrate
 
-| Source | Use |
-|--------|-----|
-| ASE (`3711.TW`), Amkor (`AMKR`) earnings | Utilization, advanced packaging revenue |
-| Sell-side notes via finance press | ABF substrate bottleneck |
+| Source                                   | Use                                     |
+| ---------------------------------------- | --------------------------------------- |
+| ASE, Amkor earnings                      | Utilization, advanced packaging revenue |
+| Sell-side notes via finance press        | ABF substrate bottleneck                |
 
-Output: **`Substrate_Tightness`** (optional fourth line)
+Output: substrate tightness index (0-100, optional fourth line)
 
 ### 5. Demand Proxy
 
-| Source | Use |
-|--------|-----|
-| Hyperscaler capex (META, MSFT, GOOG earnings) | AI infra pull |
-| NVIDIA datacenter revenue trend | Downstream accelerator demand |
-| AI chip startup funding / launch activity | More challengers competing for same capacity |
+| Source                                        | Use                                          |
+| --------------------------------------------- | -------------------------------------------- |
+| Hyperscaler capex (META, MSFT, GOOG earnings) | AI infra pull                                |
+| NVIDIA datacenter revenue trend               | Downstream accelerator demand                |
+| AI chip startup funding / launch activity     | More challengers competing for same capacity |
 
-Output: **`Demand_Pressure`**
+Output: demand pressure index (0-100)
 
 ### 6. Customer Inputs
 
@@ -259,21 +252,15 @@ Output: **`Demand_Pressure`**
 
 ---
 
-## Merge Logic
+## Recommendation Logic
 
-**Normalize** each bucket to 0-100 tightness (document rules in appendix).
+Normalize each bucket to a 0-100 tightness score (document rules in the methodology section).
 
-**Bottleneck** = `max(HBM_Tightness, CoWoS_Tightness, N3_Tightness)`
+The bottleneck is whichever constraint scores highest among HBM, CoWoS, and N3.
 
-**Gap** = required capacity (from demand + yield assumption) - committed
+Gap = required capacity (from demand + yield assumption) minus committed capacity.
 
-**Recommend when** `gap > 0` AND `bottleneck >= 70` (tune thresholds for demo flip):
-
-```
--> INCREASE_CAPACITY_COMMIT
--> deadline = today + ~6 weeks (when bottleneck >= 80)
--> revenue_at_risk = gap_fraction * demand * ASP
-```
+Recommend increasing capacity commitment when gap is positive and the bottleneck score is high (tune thresholds so the demo flips convincingly). When triggered: set a deadline roughly six weeks out when the bottleneck is severe, and estimate revenue at risk from the gap fraction, demand volume, and ASP.
 
 ---
 
@@ -287,8 +274,8 @@ Demo move: drag the slider or use the pre-filled scenario, then point at signal 
 
 ## Today Checklist
 
-- [ ] `signals.json` - every field has `source: public | derived | illustrative`.
-- [ ] One capacity brief (HTML or PDF) with disclosure footer.
+- [ ] Every data field tagged as public, derived, or illustrative.
+- [ ] One capacity brief with disclosure footer.
 - [ ] README disclaimer (see Public Disclosure).
 - [ ] Optional: demand slider that flips HOLD -> LOCK.
 - [ ] 3-slide deck: problem -> brief demo -> market/ask; slide 2 footnote "illustrative scenario".
@@ -315,8 +302,7 @@ Demo move: drag the slider or use the pre-filled scenario, then point at signal 
 
 ---
 
-## Discrepancies to Resolve
+## Open Questions
 
-- **Data freshness:** `PROJECT_HELM.md` claimed a "working demo built (live market data)" and a pitch line with "live market prices from this morning." `HELM_HACKATHON.md` said static/illustrative is acceptable and warned not to say "live data" unless actually refreshed. Consolidated guidance uses the stricter public-repo wording: cite refreshed public data only when verified; otherwise label as illustrative or derived.
-- **Demo artifact:** `PROJECT_HELM.md` referenced `helm_demo.html`, but that file is not present in `repo/`. Keep the reference only if the demo artifact is added.
+- **Data freshness:** Do not claim "live data" unless sources were actually refreshed. Cite refreshed public data only when verified; otherwise label as illustrative or derived.
 - **Company examples:** The examples are treated as stage archetypes, not customers or evidence.
